@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { of } from "rxjs";
+import { Subject, of } from "rxjs";
 
 import { IPost } from "./post.modal";
 
@@ -9,13 +9,19 @@ import { IPost } from "./post.modal";
 })
 export class PostsService {
   private posts: IPost[] = [];
+  private updatedPosts = new Subject<IPost[]>();
 
   getPosts() {
-    return this.posts;
+    return [...this.posts];
+  }
+
+  getUpdatedPosts(){
+    return this.updatedPosts.asObservable();
   }
 
   addPost(title: string, content: string){
     const post: IPost = { title: title, content: content};
     this.posts.push(post);
+    this.updatedPosts.next([...this.posts]);
   }
 }
