@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mean';
+  posts: {title: string, content: string}[] = [];
+
+  onPostAdded(post: any){
+    this.posts = [...this.posts, post];
+  }
 }
