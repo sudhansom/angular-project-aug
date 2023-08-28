@@ -6,7 +6,7 @@
       <mat-error *ngIf="title.invalid && title.touched">Please provide title</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea  matInput rows="6" name="title" #content="ngModel" ngModel required></textarea>
+      <textarea  matInput rows="6" name="content" #content="ngModel" ngModel required></textarea>
       <mat-error *ngIf="content.invalid && content.touched">Please provide content</mat-error>
     </mat-form-field>
     <button [disabled]="!postForm.valid" mat-raised-button color="accent" type="submit">Save Post</button>
