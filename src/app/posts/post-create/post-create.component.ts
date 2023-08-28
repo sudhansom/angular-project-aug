@@ -8,9 +8,10 @@ import { Component } from "@angular/core";
 
 export class PostCreateComponent {
   newPost = '';
+  enteredValue = '';
 
   onAddPost(){
-    this.newPost = '';
+    this.newPost = this.enteredValue ;
   }
 
 }
