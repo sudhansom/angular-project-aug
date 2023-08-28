@@ -1,5 +1,7 @@
 import { Component, Output,EventEmitter } from "@angular/core";
 
+import { IPost } from "../post.modal";
+
 @Component({
   selector: 'app-post-create',
   templateUrl:'./post-create.component.html',
@@ -9,14 +11,13 @@ import { Component, Output,EventEmitter } from "@angular/core";
 export class PostCreateComponent {
   enteredTitle = '';
   enteredContent='';
-  @Output() postCreated = new EventEmitter<{title: string, content: string}>();
+  @Output() postCreated = new EventEmitter<IPost>();
 
   onAddPost(){
-    const post = {
+    const post: IPost = {
       title: this.enteredTitle,
       content: this.enteredContent
     };
-    console.log(post)
     this.postCreated.emit(post);
   }
 

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
+import { IPost } from './posts/post.modal';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  posts: {title: string, content: string}[] = [];
+  posts: IPost[] = [];
 
-  onPostAdded(post: any){
+  onPostAdded(post: IPost){
     this.posts = [...this.posts, post];
   }
 }
